@@ -8,13 +8,13 @@ const path = require("path")
 const currentTask = process.env.npm_lifecycle_event
 
 const config = {
-  entry: "./Main.js",
+  entry: "/app/Main.js",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundled.js"
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "./index.html" }),
+    new HtmlWebpackPlugin({ template: "./app/index.html" }),
     new CopyPlugin({
       patterns: [{ from: "./app/img", to: "./img" }]
     })

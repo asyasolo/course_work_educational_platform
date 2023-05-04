@@ -1,11 +1,15 @@
-import React, { useEffect } from "react"
+import React from "react"
+import { createRoot } from "react-dom/client"
+import Axios from "axios"
+Axios.defaults.baseURL = "http://localhost:8080"
 
-import "./App.css"
+import "./main.css"
 
 import LoggedOut from "./components/Header/LoggedOut/LoggedOut"
 import LoggedIn from "./components/Header/LoggedIn/LoggedIn"
+import Footer from "./components/Footer/Footer"
 
-function App() {
+function Main() {
   return (
     <>
       <LoggedOut />
@@ -62,9 +66,14 @@ function App() {
         </form>
       </div>
 
-      <div className="footer text-block"></div>
+      <Footer />
     </>
   )
 }
 
-export default App
+const root = createRoot(document.getElementById("app"))
+root.render(<Main />)
+
+if (module.hot) {
+  module.hot.accept()
+}
