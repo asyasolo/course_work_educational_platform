@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
+
 *,
 ::after,
 ::before {
@@ -5,233 +8,261 @@
 }
 
 :root {
-  /*COLOURS*/
-  --md-source: #ebb9b6;
-  /* primary */
-  --md-ref-palette-primary0: #000000;
-  --md-ref-palette-primary5: #2d0003;
-  --md-ref-palette-primary10: #410005;
-  --md-ref-palette-primary20: #5f1316;
-  --md-ref-palette-primary25: #6e1f20;
-  --md-ref-palette-primary30: #7e2a2a;
-  --md-ref-palette-primary35: #8d3535;
-  --md-ref-palette-primary40: #9c4140;
-  --md-ref-palette-primary50: #bb5956;
-  --md-ref-palette-primary60: #db716e;
-  --md-ref-palette-primary70: #fb8b87;
-  --md-ref-palette-primary80: #ffb3af;
-  --md-ref-palette-primary90: #ffdad7;
-  --md-ref-palette-primary95: #ffedeb;
-  --md-ref-palette-primary98: #fff8f7;
-  --md-ref-palette-primary99: #fffbff;
-  --md-ref-palette-primary100: #ffffff;
-  /* secondary */
-  --md-ref-palette-secondary0: #000000;
-  --md-ref-palette-secondary5: #1e0038;
-  --md-ref-palette-secondary10: #2d0050;
-  --md-ref-palette-secondary20: #44196a;
-  --md-ref-palette-secondary25: #502676;
-  --md-ref-palette-secondary30: #5c3382;
-  --md-ref-palette-secondary35: #693f8f;
-  --md-ref-palette-secondary40: #754b9c;
-  --md-ref-palette-secondary50: #9064b7;
-  --md-ref-palette-secondary60: #ab7ed3;
-  --md-ref-palette-secondary70: #c798ef;
-  --md-ref-palette-secondary80: #deb7ff;
-  --md-ref-palette-secondary90: #f1dbff;
-  --md-ref-palette-secondary95: #faecff;
-  --md-ref-palette-secondary98: #fff7fe;
-  --md-ref-palette-secondary99: #fffbff;
-  --md-ref-palette-secondary100: #ffffff;
-  /* tertiary */
-  --md-ref-palette-tertiary0: #000000;
-  --md-ref-palette-tertiary5: #161000;
-  --md-ref-palette-tertiary10: #221b00;
-  --md-ref-palette-tertiary20: #3b2f00;
-  --md-ref-palette-tertiary25: #483a00;
-  --md-ref-palette-tertiary30: #554500;
-  --md-ref-palette-tertiary35: #625100;
-  --md-ref-palette-tertiary40: #705d00;
-  --md-ref-palette-tertiary50: #8d7500;
-  --md-ref-palette-tertiary60: #ab8e00;
-  --md-ref-palette-tertiary70: #caa910;
-  --md-ref-palette-tertiary80: #e7c433;
-  --md-ref-palette-tertiary90: #ffe174;
-  --md-ref-palette-tertiary95: #fff0c5;
-  --md-ref-palette-tertiary98: #fff8ef;
-  --md-ref-palette-tertiary99: #fffbff;
-  --md-ref-palette-tertiary100: #ffffff;
-  /* error */
-  --md-ref-palette-error0: #000000;
-  --md-ref-palette-error5: #2d0001;
-  --md-ref-palette-error10: #410002;
-  --md-ref-palette-error20: #690005;
-  --md-ref-palette-error25: #7e0007;
-  --md-ref-palette-error30: #93000a;
-  --md-ref-palette-error35: #a80710;
-  --md-ref-palette-error40: #ba1a1a;
-  --md-ref-palette-error50: #de3730;
-  --md-ref-palette-error60: #ff5449;
-  --md-ref-palette-error70: #ff897d;
-  --md-ref-palette-error80: #ffb4ab;
-  --md-ref-palette-error90: #ffdad6;
-  --md-ref-palette-error95: #ffedea;
-  --md-ref-palette-error98: #fff8f7;
-  --md-ref-palette-error99: #fffbff;
-  --md-ref-palette-error100: #ffffff;
-  /* neutral */
-  --md-ref-palette-neutral0: #000000;
-  --md-ref-palette-neutral5: #15100f;
-  --md-ref-palette-neutral10: #201a1a;
-  --md-ref-palette-neutral20: #362f2e;
-  --md-ref-palette-neutral25: #413a39;
-  --md-ref-palette-neutral30: #4d4544;
-  --md-ref-palette-neutral35: #595050;
-  --md-ref-palette-neutral40: #655c5c;
-  --md-ref-palette-neutral50: #7f7574;
-  --md-ref-palette-neutral60: #998e8d;
-  --md-ref-palette-neutral70: #b4a9a8;
-  --md-ref-palette-neutral80: #d0c4c3;
-  --md-ref-palette-neutral90: #ede0de;
-  --md-ref-palette-neutral95: #fbeeec;
-  --md-ref-palette-neutral98: #fff8f7;
-  --md-ref-palette-neutral99: #fffbff;
-  --md-ref-palette-neutral100: #ffffff;
-  /* neutral-variant */
-  --md-ref-palette-neutral-variant0: #000000;
-  --md-ref-palette-neutral-variant5: #190e0d;
-  --md-ref-palette-neutral-variant10: #251918;
-  --md-ref-palette-neutral-variant20: #3b2d2c;
-  --md-ref-palette-neutral-variant25: #473837;
-  --md-ref-palette-neutral-variant30: #534342;
-  --md-ref-palette-neutral-variant35: #5f4f4e;
-  --md-ref-palette-neutral-variant40: #6b5a59;
-  --md-ref-palette-neutral-variant50: #857372;
-  --md-ref-palette-neutral-variant60: #a08c8b;
-  --md-ref-palette-neutral-variant70: #bba6a5;
-  --md-ref-palette-neutral-variant80: #d8c1c0;
-  --md-ref-palette-neutral-variant90: #f4dddb;
-  --md-ref-palette-neutral-variant95: #ffedeb;
-  --md-ref-palette-neutral-variant98: #fff8f7;
-  --md-ref-palette-neutral-variant99: #fffbff;
-  --md-ref-palette-neutral-variant100: #ffffff;
-  /* light */
-  --md-sys-color-primary-light: #9c4140;
-  --md-sys-color-on-primary-light: #ffffff;
-  --md-sys-color-primary-container-light: #ffdad7;
-  --md-sys-color-on-primary-container-light: #410005;
-  --md-sys-color-primary-fixed-light: #ffdad7;
-  --md-sys-color-on-primary-fixed-light: #410005;
-  --md-sys-color-primary-fixed-dim-light: #ffb3af;
-  --md-sys-color-on-primary-fixed-variant-light: #7e2a2a;
-  --md-sys-color-secondary-light: #754b9c;
-  --md-sys-color-on-secondary-light: #ffffff;
-  --md-sys-color-secondary-container-light: #f1dbff;
-  --md-sys-color-on-secondary-container-light: #2d0050;
-  --md-sys-color-secondary-fixed-light: #f1dbff;
-  --md-sys-color-on-secondary-fixed-light: #2d0050;
-  --md-sys-color-secondary-fixed-dim-light: #deb7ff;
-  --md-sys-color-on-secondary-fixed-variant-light: #5c3382;
-  --md-sys-color-tertiary-light: #705d00;
-  --md-sys-color-on-tertiary-light: #ffffff;
-  --md-sys-color-tertiary-container-light: #ffe174;
-  --md-sys-color-on-tertiary-container-light: #221b00;
-  --md-sys-color-tertiary-fixed-light: #ffe174;
-  --md-sys-color-on-tertiary-fixed-light: #221b00;
-  --md-sys-color-tertiary-fixed-dim-light: #e7c433;
-  --md-sys-color-on-tertiary-fixed-variant-light: #554500;
-  --md-sys-color-error-light: #ba1a1a;
-  --md-sys-color-on-error-light: #ffffff;
-  --md-sys-color-error-container-light: #ffdad6;
-  --md-sys-color-on-error-container-light: #410002;
-  --md-sys-color-outline-light: #857372;
-  --md-sys-color-background-light: #fffbff;
-  --md-sys-color-on-background-light: #201a1a;
-  --md-sys-color-surface-light: #fff8f7;
-  --md-sys-color-on-surface-light: #201a1a;
-  --md-sys-color-surface-variant-light: #f4dddb;
-  --md-sys-color-on-surface-variant-light: #534342;
-  --md-sys-color-inverse-surface-light: #362f2e;
-  --md-sys-color-inverse-on-surface-light: #fbeeec;
-  --md-sys-color-inverse-primary-light: #ffb3af;
-  --md-sys-color-shadow-light: #000000;
-  --md-sys-color-surface-tint-light: #9c4140;
-  --md-sys-color-outline-variant-light: #d8c1c0;
-  --md-sys-color-scrim-light: #000000;
-  --md-sys-color-surface-container-highest-light: #ede0de;
-  --md-sys-color-surface-container-high-light: #f2e5e4;
-  --md-sys-color-surface-container-light: #f8ebea;
-  --md-sys-color-surface-container-low-light: #fef1ef;
-  --md-sys-color-surface-container-lowest-light: #ffffff;
-  --md-sys-color-surface-bright-light: #fff8f7;
-  --md-sys-color-surface-dim-light: #e4d7d6;
-  /* dark */
-  --md-sys-color-primary-dark: #ffb3af;
-  --md-sys-color-on-primary-dark: #5f1316;
-  --md-sys-color-primary-container-dark: #7e2a2a;
-  --md-sys-color-on-primary-container-dark: #ffdad7;
-  --md-sys-color-primary-fixed-dark: #ffdad7;
-  --md-sys-color-on-primary-fixed-dark: #410005;
-  --md-sys-color-primary-fixed-dim-dark: #ffb3af;
-  --md-sys-color-on-primary-fixed-variant-dark: #7e2a2a;
-  --md-sys-color-secondary-dark: #deb7ff;
-  --md-sys-color-on-secondary-dark: #44196a;
-  --md-sys-color-secondary-container-dark: #5c3382;
-  --md-sys-color-on-secondary-container-dark: #f1dbff;
-  --md-sys-color-secondary-fixed-dark: #f1dbff;
-  --md-sys-color-on-secondary-fixed-dark: #2d0050;
-  --md-sys-color-secondary-fixed-dim-dark: #deb7ff;
-  --md-sys-color-on-secondary-fixed-variant-dark: #5c3382;
-  --md-sys-color-tertiary-dark: #e7c433;
-  --md-sys-color-on-tertiary-dark: #3b2f00;
-  --md-sys-color-tertiary-container-dark: #554500;
-  --md-sys-color-on-tertiary-container-dark: #ffe174;
-  --md-sys-color-tertiary-fixed-dark: #ffe174;
-  --md-sys-color-on-tertiary-fixed-dark: #221b00;
-  --md-sys-color-tertiary-fixed-dim-dark: #e7c433;
-  --md-sys-color-on-tertiary-fixed-variant-dark: #554500;
-  --md-sys-color-error-dark: #ffb4ab;
-  --md-sys-color-on-error-dark: #690005;
-  --md-sys-color-error-container-dark: #93000a;
-  --md-sys-color-on-error-container-dark: #ffdad6;
-  --md-sys-color-outline-dark: #a08c8b;
-  --md-sys-color-background-dark: #201a1a;
-  --md-sys-color-on-background-dark: #ede0de;
-  --md-sys-color-surface-dark: #181212;
-  --md-sys-color-on-surface-dark: #d0c4c3;
-  --md-sys-color-surface-variant-dark: #534342;
-  --md-sys-color-on-surface-variant-dark: #d8c1c0;
-  --md-sys-color-inverse-surface-dark: #ede0de;
-  --md-sys-color-inverse-on-surface-dark: #201a1a;
-  --md-sys-color-inverse-primary-dark: #9c4140;
-  --md-sys-color-shadow-dark: #000000;
-  --md-sys-color-surface-tint-dark: #ffb3af;
-  --md-sys-color-outline-variant-dark: #534342;
-  --md-sys-color-scrim-dark: #000000;
-  --md-sys-color-surface-container-highest-dark: #3a3332;
-  --md-sys-color-surface-container-high-dark: #2f2828;
-  --md-sys-color-surface-container-dark: #251e1e;
-  --md-sys-color-surface-container-low-dark: #201a1a;
-  --md-sys-color-surface-container-lowest-dark: #120d0c;
-  --md-sys-color-surface-bright-dark: #3f3737;
-  --md-sys-color-surface-dim-dark: #181212;
-  /* Custom Colors */
-  --md-custom-color-Custom-Color-1: #85c1e9;
-  --md-custom-color-Custom-Color-2: #6ab04c;
+  --main-green: #042f1a;
+  --main-pink: #ff73b5;
+  --main-white: #fff6f6;
+  --main-light-green: #d4ed6d;
 }
 
 body {
   margin: 0;
-  font: 100%/1.5 "Roboto", sans-serif;
+  font: 100%/1.5 "Montserrat", sans-serif;
   font-weight: 400;
   height: 100vh;
   font-kerning: normal;
+  background-color: var(--main-green);
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.text-block:nth-of-type(2) {
+  position: relative;
+  margin-top: 5vw;
+  background-color: var(--main-pink);
+  height: 80vw;
+}
+
+.text-block:nth-of-type(2):before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 5vw;
+  background: repeat-x center top var(--main-green);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 2868 139' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2868 139V43.0056C2868 53.8541 2752.86 50.0576 2649.42 16.9689C2551.18 -14.4606 2490.72 4.91814 2432.72 23.5073C2390.62 37.0006 2349.81 50.0778 2296.8 43.0057C2241.32 35.6046 2207.84 26.8376 2179.21 19.3408C2142.79 9.80471 2114.22 2.32386 2058.22 2.32386C2009.77 2.32387 1968.12 15.1762 1927.77 27.6295C1884.81 40.8875 1843.31 53.6933 1796.63 50.0572C1757.78 47.0316 1726.77 36.9158 1695.56 26.7368C1654.03 13.1927 1612.15 -0.463273 1551.04 2.32391C1502.46 4.53995 1476.32 20.0239 1453.49 33.5533C1436.08 43.8676 1419.88 49.25 1397.25 52.25L1372.25 54.1269C1341.08 54.4432 1324.58 49.9698 1221.42 16.9691C1123.18 -14.4603 1062.72 4.91841 1004.72 23.5076C962.615 37.0008 921.813 50.0781 868.802 43.0059C813.325 35.6049 779.843 26.8379 751.213 19.341C714.794 9.80498 686.224 2.32412 630.219 2.32412C581.767 2.32413 540.121 15.1764 499.768 27.6297C456.807 40.8878 415.312 53.6936 368.629 50.0575C329.785 47.0319 298.767 36.9161 267.556 26.7371C226.027 13.1929 184.154 -0.463011 123.044 2.32417C37.4142 6.22965 5.33636 43.0669 0.00117248 55.0002L0 139L2868 139Z' fill='%23ff73b5'/%3E%3C/svg%3E%0A");
+  -webkit-background-size: 101% auto;
+  background-size: 101% auto;
+  border-bottom: 10px solid var(--main-pink);
+}
+
+.text-block:nth-of-type(3) {
+  background-color: var(--main-white);
+  height: 80vw;
+}
+
+.text-block:nth-of-type(4) {
+  background-color: var(--main-light-green);
+  height: 80vw;
+}
+
+.text-block:nth-of-type(5) {
+  background-color: var(--main-white);
+  height: 80vw;
 }
 
 h1,
 h2,
 h3,
-h4 {
+h4,
+p,
+li,
+ul {
   margin: 0;
+  padding: 0;
+  color: var(--main-green);
+}
+
+h1 {
+  font-family: "Oswald", serif;
+  font-size: 200px;
+  color: white;
+}
+
+h3 {
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 80px;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.2em 0;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+}
+
+p,
+li,
+::placeholder,
+input {
+  font-size: 22px;
   font-weight: 400;
+  line-height: 30px;
+}
+
+li {
+  list-style: none;
+  font-weight: 700;
+  color: var(--main-white);
+}
+
+::placeholder {
+  color: var(--main-green);
+}
+
+input {
+  padding-left: 14px;
+  color: var(--main-green);
+}
+
+input:active {
+  border: none;
+}
+
+.hero-img {
+  height: 420px;
+  width: auto;
+}
+
+/* NAVIGATION */
+
+.nav {
+  width: 100vw;
+  height: 136px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav li {
+  cursor: pointer;
+}
+
+.pink-btn {
+  background-color: var(--main-pink);
+  padding: 20px 26px;
+  border-radius: 8px;
+}
+
+.pink-btn a {
+  color: var(--main-green);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.logo {
+  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+/* HERO */
+
+.hero {
+  margin: 0 auto;
+  display: flex;
+  width: 1200px;
+  flex-direction: column;
+  align-items: center;
+  height: 70vw;
+}
+
+.cat-laptop {
+  z-index: 2;
+}
+
+.hero-title1 {
+  position: relative;
+  margin-bottom: -170px;
+  z-index: 1;
+}
+
+.hero-title2 {
+  margin-top: -170px;
+  z-index: 3;
+}
+
+/* ABOUT */
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-text-area {
+  max-width: 700px;
+}
+
+/* COURSES */
+
+.courses {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.course-list-wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-list-item {
+  background-color: var(--main-light-green);
+  color: var(--main-green);
+  padding: 20px;
+  margin-bottom: 48px;
+}
+
+.course-list-btn {
+  text-align: right;
+}
+
+/* REGISTRATION FORM */
+
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.95);
+  max-width: 500px;
+  height: 633px;
+  gap: 25px;
+  border-radius: 8px;
+  box-shadow: 8px 8px 50px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-item {
+  min-width: 372px;
+  height: 65px;
+  border: none;
+  background-color: var(--main-light-green);
+  margin: 0 50px;
+}
+
+.register-btn {
+  height: 68px;
+  width: 230px;
+  background-color: var(--main-pink);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-size: 22px;
+  font-weight: 700;
 }
