@@ -7,7 +7,7 @@ function Guest() {
     <>
       <div className="hero text-block">
         <h1 className="hero-title1">УЧИСЬ</h1>
-        <img className="hero-img cat-laptop" src="img/actress.png" alt="" />
+        <img className="hero-img actress" src="img/actress.png" alt="" />
         <h1 className="hero-title2">ИГРАЙ</h1>
       </div>
 
@@ -17,7 +17,7 @@ function Guest() {
           <p>idaFoundation - это образовательная платформа, которая предоставляет всем желающим бесплатное образование в области актерского, режиссерского и сценарного мастерства.</p>
         </div>
         <div className="about-pic-area">
-          <img className="hero-img cat-pen" src="img/kitty_pen.png" alt="" />
+          <img className="about-img clown" src="img/makeup_clown.png" alt="" />
         </div>
       </div>
 
