@@ -260,8 +260,8 @@ input:active {
   justify-content: center;
   align-items: center;
   background-color: rgb(255, 255, 255, 0.95);
-  max-width: 500px;
-  height: 633px;
+  width: 500px;
+  height: 600px;
   gap: 25px;
   border-radius: 8px;
   box-shadow: 8px 8px 50px 8px rgba(0, 0, 0, 0.1);

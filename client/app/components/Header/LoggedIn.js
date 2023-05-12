@@ -21,11 +21,9 @@ function LoggedIn() {
       </li>
       <li>ПРОФИЛЬ</li>
       <li>
-        <Link to="/">
-          <span className="pink-btn" onClick={handleLogout}>
-            ВЫЙТИ
-          </span>
-        </Link>
+        <span className="pink-btn" onClick={handleLogout}>
+          <Link to="/">ВЫЙТИ</Link>
+        </span>
       </li>
     </ul>
   )
