@@ -198,12 +198,12 @@ input:active {
 
 .hero-title1 {
   position: relative;
-  margin-bottom: -170px;
+  margin-bottom: -120px;
   z-index: 1;
 }
 
 .hero-title2 {
-  margin-top: -170px;
+  margin-top: -180px;
   z-index: 3;
 }
 

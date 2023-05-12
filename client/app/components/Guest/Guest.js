@@ -6,15 +6,15 @@ function Guest() {
   return (
     <>
       <div className="hero text-block">
-        <h1 className="hero-title1">ЗНАНИЯ</h1>
-        <img className="hero-img cat-laptop" src="img/kitty_laptop.png" alt="" />
-        <h1 className="hero-title2">СЕЙЧАС</h1>
+        <h1 className="hero-title1">УЧИСЬ</h1>
+        <img className="hero-img cat-laptop" src="img/actress.png" alt="" />
+        <h1 className="hero-title2">ИГРАЙ</h1>
       </div>
 
       <div className="about text-block">
         <div className="about-text-area">
-          <h3>ЛЮБОПЫТНЫ КАК КОТЯТА</h3>
-          <p>kittyFoundation - это образовательная платформа, которая предоставляет всем желающим бесплатное образование в области поэзии, писательства и лингвистики.</p>
+          <h3>СОЗДАВАТЬ НОВОЕ ИСКУССТВО</h3>
+          <p>idaFoundation - это образовательная платформа, которая предоставляет всем желающим бесплатное образование в области актерского, режиссерского и сценарного мастерства.</p>
         </div>
         <div className="about-pic-area">
           <img className="hero-img cat-pen" src="img/kitty_pen.png" alt="" />

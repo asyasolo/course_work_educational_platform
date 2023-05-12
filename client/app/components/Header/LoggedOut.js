@@ -8,7 +8,7 @@ function LoggedOut() {
       <li>НАШИ КУРСЫ</li>
       <li>
         <Link className="anchor-li logo" to="/">
-          <span>kitty</span>
+          <span>ida</span>
           <span>Foundation</span>
         </Link>
       </li>

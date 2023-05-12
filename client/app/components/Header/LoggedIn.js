@@ -16,7 +16,7 @@ function LoggedIn() {
       <li>КТО МЫ</li>
       <li>НАШИ КУРСЫ</li>
       <li className="logo">
-        <span>kitty</span>
+        <span>ida</span>
         <span>Foundation</span>
       </li>
       <li>ПРОФИЛЬ</li>
