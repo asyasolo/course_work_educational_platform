@@ -1,72 +1,96 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { createRoot } from "react-dom/client"
+import { useImmerReducer } from "use-immer"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Axios from "axios"
 Axios.defaults.baseURL = "http://localhost:8080"
 
 import "./main.css"
 
-import LoggedOut from "./components/Header/LoggedOut/LoggedOut"
-import LoggedIn from "./components/Header/LoggedIn/LoggedIn"
+// global state and dispatch
+import StateContext from "./StateContext"
+import DispatchContext from "./DispatchContext"
+
+import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
+import Guest from "./components/Guest/Guest"
+import NotFound from "./components/NotFound/NotFound"
+import Home from "./components/Home/Home"
+import Registration from "./components/Registration/Registration"
+import Login from "./components/Login/Login"
 
 function Main() {
+  const initialState = {
+    loggedIn: Boolean(localStorage.getItem("appToken")),
+    flashMessages: [],
+    user: {
+      token: localStorage.getItem("appToken"),
+      username: localStorage.getItem("appUsername")
+    }
+  }
+  function reducer(draft, action) {
+    switch (action.type) {
+      case "login":
+        draft.loggedIn = true
+        draft.user = action.data
+        return
+      case "logout":
+        draft.loggedIn = false
+        return
+      case "flashMessage":
+        draft.flashMessages.push(action.value)
+        return
+    }
+  }
+  const [state, dispatch] = useImmerReducer(reducer, initialState)
+
+  useEffect(() => {
+    if (state.loggedIn) {
+      localStorage.setItem("appToken", state.user.token)
+      localStorage.setItem("appUsername", state.user.username)
+    } else {
+      localStorage.removeItem("appToken")
+      localStorage.removeItem("appUsername")
+    }
+  }, [state.loggedIn])
+
+  useEffect(() => {
+    // if requestCount > 0
+    if (state.loggedIn) {
+      const ourRequest = Axios.CancelToken.source()
+      async function fetchResults() {
+        try {
+          const response = await Axios.post("/checkToken", { token: state.user.token }, { cancelToken: ourRequest.token })
+          if (!response.data) {
+            dispatch({ type: "logout" })
+            dispatch({ type: "flashMessage", value: "Your session has expired. Please log in again." })
+          }
+        } catch (error) {
+          console.log(error.response.data)
+        }
+      }
+      fetchResults()
+      return () => ourRequest.cancel()
+    }
+  }, [])
+
   return (
     <>
-      <LoggedOut />
+      <StateContext.Provider value={state}>
+        <DispatchContext.Provider value={dispatch}>
+          <BrowserRouter>
+            <Header />
 
-      <div className="hero text-block">
-        <h1 className="hero-title1">ЗНАНИЯ</h1>
-        <img className="hero-img cat-laptop" src="img/kitty_laptop.png" alt="" />
-        <h1 className="hero-title2">СЕЙЧАС</h1>
-      </div>
+            <Routes>
+              <Route path="/" element={state.loggedIn ? <Home /> : <Guest />} />
+              <Route path="/register" element={<Registration />} />
+              <Route path="/login" element={<Login />} />
 
-      <div className="about text-block">
-        <div className="about-text-area">
-          <h3>ЛЮБОПЫТНЫ КАК КОТЯТА</h3>
-          <p>kittyFoundation - это образовательная платформа, которая предоставляет всем желающим бесплатное образование в области поэзии, писательства и лингвистики.</p>
-        </div>
-        <div className="about-pic-area">
-          <img className="hero-img cat-pen" src="img/kitty_pen.png" alt="" />
-        </div>
-      </div>
-
-      <div className="courses text-block">
-        <div className="course-list-wrapper">
-          <ul className="course-list">
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-          </ul>
-          <span className="pink-btn course-list-btn">
-            <a href="#">ВСЕ КУРСЫ</a>
-          </span>
-        </div>
-        <div className="about-text-area">
-          <h3>НАШИ КУРСЫ</h3>
-          <p>научитесь создавать с нами</p>
-        </div>
-      </div>
-
-      <div className="register text-block">
-        <div className="about-text-area">
-          <h3>НАШИ КУРСЫ</h3>
-          <p>научитесь создавать с нами</p>
-        </div>
-
-        <form className="login-form" action="">
-          <input type="text" name="login" id="login" className="login-form-item" placeholder="логин" />
-
-          <input type="text" name="password" id="password" className="login-form-item" placeholder="пароль" />
-
-          <input type="text" name="email" id="" className="login-form-item" placeholder="почта" />
-
-          <button className="register-btn">РЕГИСТРАЦИЯ</button>
-        </form>
-      </div>
-
-      <Footer />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </DispatchContext.Provider>
+      </StateContext.Provider>
     </>
   )
 }
