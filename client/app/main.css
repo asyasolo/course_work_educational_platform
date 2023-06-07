@@ -80,6 +80,18 @@ h1 {
   color: white;
 }
 
+h2 {
+  font-family: "Oswald", serif;
+  font-size: 100px;
+  color: white;
+  font-weight: 700;
+  line-height: 80px;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.2em 0;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
 h3 {
   font-size: 88px;
   font-weight: 700;
@@ -297,4 +309,10 @@ input:active {
   font-size: 22px;
   font-weight: 700;
   cursor: pointer;
+}
+
+/* COURSE PAGE */
+
+.course-wrapper {
+  background-color: gray;
 }
