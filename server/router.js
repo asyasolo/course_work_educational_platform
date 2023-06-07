@@ -13,6 +13,7 @@ apiRouter.post("/checkToken", userController.checkToken)
 
 apiRouter.post("/register", userController.apiRegister)
 apiRouter.post("/login", userController.apiLogin)
+apiRouter.get("/courses/:routeString", courseController.findCourseByRouteString)
 
 apiRouter.post("/doesUsernameExist", userController.doesUsernameExist)
 apiRouter.post("/doesEmailExist", userController.doesEmailExist)

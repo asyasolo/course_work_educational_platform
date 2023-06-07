@@ -18,6 +18,7 @@ import NotFound from "./components/NotFound/NotFound"
 import Home from "./components/Home/Home"
 import Registration from "./components/Registration/Registration"
 import Login from "./components/Login/Login"
+import Course from "./components/Course/Course"
 
 function Main() {
   const initialState = {
@@ -85,6 +86,7 @@ function Main() {
               <Route path="/" element={state.loggedIn ? <Home /> : <Guest />} />
               <Route path="/register" element={<Registration />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/courses/:routeString" element={<Course />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
