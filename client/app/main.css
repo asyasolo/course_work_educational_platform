@@ -153,6 +153,14 @@ input:active {
   width: auto;
 }
 
+.white {
+  color: var(--main-white);
+}
+
+.pink {
+  color: var(--main-pink);
+}
+
 /* NAVIGATION */
 
 .nav {
@@ -314,5 +322,27 @@ input:active {
 /* COURSE PAGE */
 
 .course-wrapper {
-  background-color: gray;
+  width: 850px;
+  margin: 0 auto;
+  padding: 35px 0;
+}
+
+.course-desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lesson-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+/* LESSON PAGE */
+
+.view-lesson-wrapper {
+  width: 850px;
+  margin: 0 auto;
+  padding: 35px 0;
 }
