@@ -3,6 +3,7 @@ const cors = require("cors")
 
 const userController = require("./controllers/userController")
 const courseController = require("./controllers/courseController")
+const lessonController = require("./controllers/lessonController")
 
 apiRouter.use(cors())
 
@@ -14,6 +15,7 @@ apiRouter.post("/checkToken", userController.checkToken)
 apiRouter.post("/register", userController.apiRegister)
 apiRouter.post("/login", userController.apiLogin)
 apiRouter.get("/courses/:routeString", courseController.findCourseByRouteString)
+apiRouter.get("/courses/:routeString/:lessonID", lessonController.findLessonByID)
 
 apiRouter.post("/doesUsernameExist", userController.doesUsernameExist)
 apiRouter.post("/doesEmailExist", userController.doesEmailExist)

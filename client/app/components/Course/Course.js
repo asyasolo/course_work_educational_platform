@@ -16,6 +16,7 @@ function Course() {
       try {
         const response = await Axios.get(`/courses/${routeString}`, { cancelToken: axiosRequest.token })
         setCourse(response.data)
+
         console.log(response.data)
         setIsLoading(false)
       } catch (e) {
@@ -32,21 +33,30 @@ function Course() {
     return <NotFound />
   }
 
-  if (isLoading) return <p>Loading....</p>
+  if (isLoading) return <h2 className="white">Loading....</h2>
 
   return (
     <div className="course-wrapper">
-      <h1>{course.courseName}</h1>
-      <h3>{course.description}</h3>
+      <div className="course-desc">
+        <div className="course-text">
+          <h2>{course.courseName}</h2>
+          <p className="white">{course.description}</p>
+        </div>
+        <div className="course-img">
+          <img src="../../img/king.png" height={166} alt="" />
+        </div>
+      </div>
 
-      <div>
+      <div className="course-blocks-wrapper">
         {course.lessons.map(lesson => (
-          <div>
-            <h2>{lesson.title}</h2>
+          <div className="block-wrapper">
+            <h4 className="pink">{lesson.title}</h4>
             {lesson.blocks.map(block => (
-              <div key={block.title}>
-                <h2>{block.title}</h2>
-                <div dangerouslySetInnerHTML={{ __html: block.content }}></div>
+              <div className="lesson-wrapper" key={block.title}>
+                <Link to={`/courses/${course.routeString}/${block.lessonID}`}>
+                  <p className="white">{block.title}</p>
+                </Link>
+                <img src="../../img/star.svg" height={33} alt="" />
               </div>
             ))}
           </div>
