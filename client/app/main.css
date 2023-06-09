@@ -319,6 +319,15 @@ input:active {
   cursor: pointer;
 }
 
+/* COURSES CONTAINER */
+
+.single_course {
+  background-color: var(--main-white);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
 /* COURSE PAGE */
 
 .course-wrapper {
@@ -345,4 +354,30 @@ input:active {
   width: 850px;
   margin: 0 auto;
   padding: 35px 0;
+}
+
+.lesson-content {
+  background-color: var(--main-white);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.button-block {
+  display: flex;
+  margin-top: 42px;
+  height: 88px;
+  gap: 25px;
+}
+
+.veiw-button,
+.next-lesson-button {
+  flex: 1;
+  border-radius: 8px;
+  background-color: var(--main-light-green);
+}
+
+.complete-button {
+  flex: 2;
+  border-radius: 8px;
+  background-color: var(--main-pink);
 }
