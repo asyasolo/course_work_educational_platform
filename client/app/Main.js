@@ -20,6 +20,7 @@ import Registration from "./components/Registration/Registration"
 import Login from "./components/Login/Login"
 import Course from "./components/Course/Course"
 import Lesson from "./components/Lesson/Lesson"
+import Completed from "./components/Completed/Completed"
 
 function Main() {
   const initialState = {
@@ -91,6 +92,7 @@ function Main() {
               <Route path="/login" element={<Login />} />
               <Route path="/courses/:routeString" element={<Course />} />
               <Route path="/courses/:routeString/:lessonID" element={<Lesson />} />
+              <Route path="/courses/:routeString/completed" element={<Completed />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
