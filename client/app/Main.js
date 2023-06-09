@@ -21,6 +21,7 @@ import Login from "./components/Login/Login"
 import Course from "./components/Course/Course"
 import Lesson from "./components/Lesson/Lesson"
 import Completed from "./components/Completed/Completed"
+import CourseList from "./containers/CourseList/CourseList"
 
 function Main() {
   const initialState = {
@@ -90,6 +91,7 @@ function Main() {
               <Route path="/" element={state.loggedIn ? <Home /> : <Guest />} />
               <Route path="/register" element={<Registration />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/courses" element={<CourseList />} />
               <Route path="/courses/:routeString" element={<Course />} />
               <Route path="/courses/:routeString/:lessonID" element={<Lesson />} />
               <Route path="/courses/:routeString/completed" element={<Completed />} />

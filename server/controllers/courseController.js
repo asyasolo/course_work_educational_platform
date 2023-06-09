@@ -8,3 +8,12 @@ exports.findCourseByRouteString = async function (req, res) {
     res.json(false)
   }
 }
+
+exports.getAllCourses = async function (req, res) {
+  try {
+    let courses = await Course.findAll()
+    res.json(courses)
+  } catch (error) {
+    res.json(false)
+  }
+}

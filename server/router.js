@@ -14,6 +14,7 @@ apiRouter.post("/checkToken", userController.checkToken)
 
 apiRouter.post("/register", userController.apiRegister)
 apiRouter.post("/login", userController.apiLogin)
+apiRouter.get("/courses", courseController.getAllCourses)
 apiRouter.get("/courses/:routeString", courseController.findCourseByRouteString)
 apiRouter.get("/courses/:routeString/:lessonID", lessonController.findLessonByID)
 apiRouter.post("/courses/:routeString/completed")

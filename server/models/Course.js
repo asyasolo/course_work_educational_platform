@@ -22,4 +22,16 @@ Course.findSingleByRoute = function (routeString) {
   })
 }
 
+Course.findAll = function () {
+  return new Promise(async function (resolve, reject) {
+    let courses = await coursesCollection.find().toArray()
+
+    if (courses) {
+      resolve(courses)
+    } else {
+      reject()
+    }
+  })
+}
+
 module.exports = Course

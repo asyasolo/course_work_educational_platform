@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 import Registration from "../Registration/Registration"
 
@@ -24,14 +25,20 @@ function Guest() {
       <div className="courses text-block">
         <div className="course-list-wrapper">
           <ul className="course-list">
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
+            <Link to="/courses/the_art_of_directing">
+              <li className="course-list-item">Искусство режиссуры</li>
+            </Link>
+            <Link to="/courses/visual_language_of_cinema">
+              <li className="course-list-item">Визуальный язык кино</li>
+            </Link>
+            <Link to="/courses/expressive_improvisation">
+              <li className="course-list-item">Экспрессивная импровизация</li>
+            </Link>
             <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
             <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
           </ul>
           <span className="pink-btn course-list-btn">
-            <a href="#">ВСЕ КУРСЫ</a>
+            <Link to="/courses">ВСЕ КУРСЫ</Link>
           </span>
         </div>
         <div className="about-text-area">

@@ -14,7 +14,10 @@ function LoggedIn() {
   return (
     <ul className="nav">
       <li>КТО МЫ</li>
-      <li>НАШИ КУРСЫ</li>
+      <Link to="/courses">
+        <li>НАШИ КУРСЫ</li>
+      </Link>
+
       <li className="logo">
         <span>ida</span>
         <span>Foundation</span>
