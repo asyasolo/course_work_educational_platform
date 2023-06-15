@@ -175,6 +175,7 @@ function Registration() {
           console.log("account created")
           appDispatch({ type: "login", data: response.data })
           appDispatch({ type: "flashMessage", value: "Your account was created!" })
+          navigate("/")
         } catch (error) {
           console.log(error.response)
         }

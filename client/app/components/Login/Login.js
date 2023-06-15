@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react"
 import Axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 import DispatchContext from "../../DispatchContext"
 
 function Login() {
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
+  const navigate = useNavigate()
   const appDispatch = useContext(DispatchContext)
 
   async function handleSubmit(e) {
@@ -15,6 +17,7 @@ function Login() {
       if (response.data) {
         appDispatch({ type: "login", data: response.data })
         appDispatch({ type: "flashMessage", value: "You're logged in." })
+        navigate("/")
       } else {
         console.log("incorrect data")
         appDispatch({ type: "flashMessage", value: "Invalid password / username." })
