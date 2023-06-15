@@ -81,7 +81,7 @@ function Main() {
   }, [])
 
   return (
-    <>
+    <div>
       <StateContext.Provider value={state}>
         <DispatchContext.Provider value={dispatch}>
           <BrowserRouter>
@@ -101,7 +101,7 @@ function Main() {
           </BrowserRouter>
         </DispatchContext.Provider>
       </StateContext.Provider>
-    </>
+    </div>
   )
 }
 
