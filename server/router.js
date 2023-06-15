@@ -15,9 +15,12 @@ apiRouter.post("/checkToken", userController.checkToken)
 apiRouter.post("/register", userController.apiRegister)
 apiRouter.post("/login", userController.apiLogin)
 apiRouter.get("/courses", courseController.getAllCourses)
+apiRouter.post("/getAllCourses", courseController.getAllCourses)
 apiRouter.get("/courses/:routeString", courseController.findCourseByRouteString)
 apiRouter.get("/courses/:routeString/:lessonID", lessonController.findLessonByID)
-apiRouter.post("/courses/:routeString/completed")
+apiRouter.post("/getHomeFeed", userController.apiMustBeLoggedIn, userController.getFeed)
+
+/*apiRouter.post("/courses/:routeString/completed")*/
 
 apiRouter.post("/doesUsernameExist", userController.doesUsernameExist)
 apiRouter.post("/doesEmailExist", userController.doesEmailExist)
