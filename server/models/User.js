@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs")
 const usersCollection = require("../db").db().collection("users")
 const validator = require("validator")
+const ObjectId = require("mongodb").ObjectId
 
 let User = function (data) {
   this.data = data
@@ -150,6 +151,25 @@ User.doesEmailExist = function (email) {
       resolve(true)
     } else {
       resolve(false)
+    }
+  })
+}
+
+User.findByUserID = function (authorId) {
+  return new Promise(async function (resolve, reject) {
+    if (typeof authorId != "string" || !ObjectId.isValid(authorId)) {
+      reject()
+      return
+    }
+
+    let user = await usersCollection.findOne({ _id: new ObjectId(authorId) })
+    let courses = user.activeCourses
+
+    if (courses) {
+      console.log(courses)
+      resolve(courses)
+    } else {
+      reject()
     }
   })
 }

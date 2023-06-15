@@ -1,7 +1,17 @@
 const User = require("../models/User")
+const Course = require("../models/Course")
 const jwt = require("jsonwebtoken")
 
 const tokenLasts = "14d"
+
+exports.getFeed = async function (req, res) {
+  try {
+    let courses = await User.findByUserID(req.apiUser._id)
+    res.json(courses)
+  } catch (e) {
+    res.status(500).send("Sorry, invalid user request.")
+  }
+}
 
 exports.checkToken = function (req, res) {
   try {
@@ -9,6 +19,16 @@ exports.checkToken = function (req, res) {
     res.json(true)
   } catch (e) {
     res.json(false)
+  }
+}
+
+exports.apiMustBeLoggedIn = function (req, res, next) {
+  try {
+    req.apiUser = jwt.verify(req.body.token, process.env.JWTSECRET)
+    console.log(req.apiUser)
+    next()
+  } catch (e) {
+    res.status(500).send("Sorry, you must provide a valid token.")
   }
 }
 
