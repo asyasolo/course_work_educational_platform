@@ -176,6 +176,11 @@ input:active {
   cursor: pointer;
 }
 
+.btn {
+  cursor: pointer;
+  border: none;
+}
+
 .pink-btn {
   background-color: var(--main-pink);
   padding: 20px 26px;

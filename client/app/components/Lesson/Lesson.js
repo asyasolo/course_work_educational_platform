@@ -85,9 +85,9 @@ function Lesson() {
       <div className="lesson-content" dangerouslySetInnerHTML={{ __html: lesson.content }}></div>
 
       <div className="button-block">
-        <button className="veiw-button">ПРОСМОТР КУРСА</button>
-        <button className="complete-button">ОТМЕТИТЬ ПРОЙДЕННЫМ</button>
-        <button onClick={handleNextLesson} className="next-lesson-button">
+        <button className="veiw-button btn">ПРОСМОТР КУРСА</button>
+        <button className="complete-button btn">ОТМЕТИТЬ ПРОЙДЕННЫМ</button>
+        <button onClick={handleNextLesson} className="next-lesson-button btn">
           {nextLessonID ? "СЛЕДУЮЩИЙ УРОК" : "ПОЗДРАВЛЯЕМ!"}
         </button>
       </div>
