@@ -48,7 +48,7 @@ function CourseList() {
       </div>
 
       {data.map(course => (
-        <div className="single_course">
+        <div className="single_course" key={course._id}>
           <Link to={`/courses/${course.routeString}`}>
             <h4>{course.courseName}</h4>
           </Link>

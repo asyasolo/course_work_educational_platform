@@ -49,10 +49,10 @@ function Course() {
 
       <div className="course-blocks-wrapper">
         {course.lessons.map(lesson => (
-          <div className="block-wrapper">
+          <div className="block-wrapper" key={lesson.lessonID}>
             <h4 className="pink">{lesson.title}</h4>
             {lesson.blocks.map(block => (
-              <div className="lesson-wrapper" key={block.title}>
+              <div className="lesson-wrapper" key={block.lessonID}>
                 <Link to={`/courses/${course.routeString}/${block.lessonID}`}>
                   <p className="white">{block.title}</p>
                 </Link>
