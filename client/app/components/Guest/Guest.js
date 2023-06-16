@@ -26,16 +26,20 @@ function Guest() {
         <div className="course-list-wrapper">
           <ul className="course-list">
             <Link to="/courses/the_art_of_directing">
-              <li className="course-list-item">Искусство режиссуры</li>
+              <li className="course-list-item">ИСКУССТВО РЕЖИССУРЫ</li>
             </Link>
             <Link to="/courses/visual_language_of_cinema">
-              <li className="course-list-item">Визуальный язык кино</li>
+              <li className="course-list-item">ВИЗУАЛЬНЫЙ ЯЗЫК КИНО</li>
             </Link>
             <Link to="/courses/expressive_improvisation">
-              <li className="course-list-item">Экспрессивная импровизация</li>
+              <li className="course-list-item">ЭКСПРЕССИВНАЯ ИМПРОВИЗАЦИЯ</li>
             </Link>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
-            <li className="course-list-item">ТЕОРИЯ ЛИТЕРАТУРЫ</li>
+            <Link to="/courses/voice_and_emotions">
+              <li className="course-list-item">ГОЛОС И ЭМОЦИИ</li>
+            </Link>
+            <Link to="/courses/editing_rhythm">
+              <li className="course-list-item">МОНТАЖНЫЙ РИТМ</li>
+            </Link>
           </ul>
           <span className="pink-btn course-list-btn">
             <Link to="/courses">ВСЕ КУРСЫ</Link>
