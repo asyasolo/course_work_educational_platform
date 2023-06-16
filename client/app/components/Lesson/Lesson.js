@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Axios from "axios"
+import { Link } from "react-router-dom"
 
 import NotFound from "../NotFound/NotFound"
 
@@ -61,6 +62,11 @@ function Lesson() {
     }
   }
 
+  function showCourse(e) {
+    e.preventDefault()
+    navigate(`/courses/${routeString}`)
+  }
+
   function getNextLessonID() {
     for (const item of course.lessons) {
       for (const block of item.blocks) {
@@ -82,13 +88,17 @@ function Lesson() {
   return (
     <div className="view-lesson-wrapper">
       <h2>{lesson.title}</h2>
-      <div className="lesson-content" dangerouslySetInnerHTML={{ __html: lesson.content }}></div>
+      <div className="lesson-content black" dangerouslySetInnerHTML={{ __html: lesson.content }}></div>
 
       <div className="button-block">
-        <button className="veiw-button btn">ПРОСМОТР КУРСА</button>
+        <button className="veiw-button btn" onClick={showCourse}>
+          ПРОСМОТР КУРСА
+        </button>
+
         <button className="complete-button btn">ОТМЕТИТЬ ПРОЙДЕННЫМ</button>
+
         <button onClick={handleNextLesson} className="next-lesson-button btn">
-          {nextLessonID ? "СЛЕДУЮЩИЙ УРОК" : "ПОЗДРАВЛЯЕМ!"}
+          СЛЕДУЮЩИЙ УРОК
         </button>
       </div>
     </div>
