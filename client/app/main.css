@@ -85,7 +85,7 @@ h2 {
   font-size: 100px;
   color: white;
   font-weight: 700;
-  line-height: 80px;
+  line-height: 100px;
   letter-spacing: 0.01em;
   margin: 0 0 0.2em 0;
   text-transform: uppercase;
@@ -135,6 +135,12 @@ li {
   color: var(--main-white);
 }
 
+ol > li {
+  list-style: decimal;
+  font-weight: 700;
+  color: var(--main-white);
+}
+
 ::placeholder {
   color: var(--main-green);
 }
@@ -161,6 +167,10 @@ input:active {
   color: var(--main-pink);
 }
 
+.black * {
+  color: var(--main-green);
+}
+
 /* NAVIGATION */
 
 .nav {
@@ -179,6 +189,7 @@ input:active {
 .btn {
   cursor: pointer;
   border: none;
+  font-size: 22px;
 }
 
 .pink-btn {
