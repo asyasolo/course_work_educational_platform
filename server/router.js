@@ -19,6 +19,7 @@ apiRouter.post("/getAllCourses", courseController.getAllCourses)
 apiRouter.get("/courses/:routeString", courseController.findCourseByRouteString)
 apiRouter.get("/courses/:routeString/:lessonID", lessonController.findLessonByID)
 apiRouter.post("/getHomeFeed", userController.apiMustBeLoggedIn, userController.getFeed)
+apiRouter.post("/mark_lesson", userController.apiMustBeLoggedIn, userController.markTheLesson)
 
 /*apiRouter.post("/courses/:routeString/completed")*/
 

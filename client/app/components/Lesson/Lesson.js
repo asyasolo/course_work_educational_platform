@@ -5,13 +5,18 @@ import { Link } from "react-router-dom"
 
 import NotFound from "../NotFound/NotFound"
 
+import StateContext from "../../StateContext"
+
 function Lesson() {
   const { routeString, lessonID } = useParams()
   const [lesson, setLesson] = useState()
   const [course, setCourse] = useState()
   const [isLoading, setIsLoading] = useState(true)
+  const [isMarked, setIsMarked] = useState(false)
   const navigate = useNavigate()
   let nextLessonID = "test"
+
+  const appState = useContext(StateContext)
 
   useEffect(() => {
     if (course) {
@@ -85,6 +90,24 @@ function Lesson() {
     }
     return null // Возвращаем null, если следующего урока нет
   }
+
+  function markLesson() {
+    const axiosRequest = Axios.CancelToken.source()
+    async function postData() {
+      try {
+        const response = await Axios.post("/mark_lesson", { token: appState.user.token, lessonID: lesson._id, routeString: routeString }, { cancelToken: axiosRequest.token })
+        console.log(response.data)
+
+        setIsMarked(true)
+      } catch (error) {
+        // Добавьте обработку ошибок, если необходимо
+        console.log(error)
+      }
+    }
+
+    postData()
+  }
+
   return (
     <div className="view-lesson-wrapper">
       <h2>{lesson.title}</h2>
@@ -95,7 +118,9 @@ function Lesson() {
           ПРОСМОТР КУРСА
         </button>
 
-        <button className="complete-button btn">ОТМЕТИТЬ ПРОЙДЕННЫМ</button>
+        <button onClick={markLesson} className={`complete-button btn ${isMarked ? "completed" : ""}`}>
+          {isMarked ? "ПРОЙДЕНО" : "ОТМЕТИТЬ ПРОЙДЕННЫМ"}
+        </button>
 
         <button onClick={handleNextLesson} className="next-lesson-button btn">
           СЛЕДУЮЩИЙ УРОК

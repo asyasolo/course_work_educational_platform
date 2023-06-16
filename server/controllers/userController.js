@@ -32,6 +32,15 @@ exports.apiMustBeLoggedIn = function (req, res, next) {
   }
 }
 
+exports.markTheLesson = async function (req, res) {
+  try {
+    await User.LessonCompletion(req.apiUser._id, req.body.lessonID, req.body.routeString)
+    res.json(true)
+  } catch (err) {
+    res.status(500).json({ error: "Failed to mark the lesson" })
+  }
+}
+
 exports.apiLogin = function (req, res) {
   let user = new User(req.body)
   user

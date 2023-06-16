@@ -174,4 +174,41 @@ User.findByUserID = function (authorId) {
   })
 }
 
+User.LessonCompletion = function (authorId, lessonID, routeString) {
+  return new Promise(async function (resolve, reject) {
+    if (typeof authorId != "string" || !ObjectId.isValid(authorId)) {
+      reject()
+      return
+    }
+
+    try {
+      const user = await usersCollection.findOne({ _id: new ObjectId(authorId) })
+
+      if (!user) {
+        reject("User not found")
+        return
+      }
+
+      let courses = user.completedLessons || {}
+
+      if (!courses[routeString]) {
+        courses[routeString] = [lessonID]
+      } else {
+        courses[routeString].push(lessonID)
+      }
+
+      let activeCourses = user.activeCourses || []
+
+      if (!activeCourses.includes(routeString)) {
+        activeCourses.push(routeString)
+      }
+
+      await usersCollection.updateOne({ _id: user._id }, { $set: { completedLessons: courses, activeCourses } })
+      resolve()
+    } catch (error) {
+      reject(error)
+    }
+  })
+}
+
 module.exports = User

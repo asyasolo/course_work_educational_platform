@@ -171,6 +171,10 @@ input:active {
   color: var(--main-green);
 }
 
+.completed {
+  background-color: goldenrod;
+}
+
 /* NAVIGATION */
 
 .nav {
