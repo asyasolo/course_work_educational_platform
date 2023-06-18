@@ -4,10 +4,19 @@ import { useParams, Link, useNavigate } from "react-router-dom"
 
 import NotFound from "../NotFound/NotFound"
 
+import StateContext from "../../StateContext"
+
 function Course() {
+  const AppState = useContext(StateContext)
   const [isLoading, setIsLoading] = useState(true)
   const [course, setCourse] = useState()
+  const [userCourses, setUserCourses] = useState()
+  const [completedLessons, setCompletedLessons] = useState()
   const { routeString } = useParams()
+
+  useEffect(() => {
+    setUserCourses(AppState.user.completedLessons)
+  }, [AppState.user.completedLessons])
 
   useEffect(() => {
     const axiosRequest = Axios.CancelToken.source()
@@ -28,6 +37,21 @@ function Course() {
       axiosRequest.cancel()
     }
   }, [routeString])
+
+  useEffect(() => {
+    if (userCourses) {
+      Object.keys(userCourses).forEach(key => {
+        if (key === routeString) {
+          setCompletedLessons(userCourses[key])
+          return
+        }
+      })
+    }
+  }, [userCourses, routeString])
+
+  useEffect(() => {
+    console.log(completedLessons)
+  }, [completedLessons])
 
   if (!isLoading && !course) {
     return <NotFound />
@@ -56,7 +80,7 @@ function Course() {
                 <Link to={`/courses/${course.routeString}/${block.lessonID}`}>
                   <p className="white">{block.title}</p>
                 </Link>
-                <img src="../../img/star.svg" height={33} alt="" />
+                {completedLessons && completedLessons.length > 0 && <img src={completedLessons.includes(block.lessonID) ? "../../img/star_golden.png" : "../../img/star.svg"} height={33} alt="" />}
               </div>
             ))}
           </div>
