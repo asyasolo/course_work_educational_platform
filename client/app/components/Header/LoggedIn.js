@@ -22,7 +22,9 @@ function LoggedIn() {
         <span>ida</span>
         <span>Foundation</span>
       </li>
-      <li>ПРОФИЛЬ</li>
+      <Link to="/">
+        <li>ПРОФИЛЬ</li>
+      </Link>
       <li>
         <span className="pink-btn" onClick={handleLogout}>
           <Link to="/">ВЫЙТИ</Link>
