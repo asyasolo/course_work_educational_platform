@@ -41,6 +41,18 @@ exports.markTheLesson = async function (req, res) {
   }
 }
 
+exports.getUserDetails = async function (req, res) {
+  try {
+    const user = await User.fullUserData(req.apiUser._id)
+    res.json({
+      activeCourses: user.activeCourses,
+      completedLessons: user.completedLessons
+    })
+  } catch (err) {
+    res.status(500).json({ error: "Failed to get user details" })
+  }
+}
+
 exports.apiLogin = function (req, res) {
   let user = new User(req.body)
   user

@@ -174,6 +174,24 @@ User.findByUserID = function (authorId) {
   })
 }
 
+User.fullUserData = function (authorId) {
+  return new Promise(async function (resolve, reject) {
+    if (typeof authorId != "string" || !ObjectId.isValid(authorId)) {
+      reject()
+      return
+    }
+
+    let user = await usersCollection.findOne({ _id: new ObjectId(authorId) })
+
+    if (user) {
+      console.log(user)
+      resolve(user)
+    } else {
+      reject()
+    }
+  })
+}
+
 User.LessonCompletion = function (authorId, lessonID, routeString) {
   return new Promise(async function (resolve, reject) {
     if (typeof authorId != "string" || !ObjectId.isValid(authorId)) {
