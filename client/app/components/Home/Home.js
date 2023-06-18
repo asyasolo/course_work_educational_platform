@@ -6,14 +6,14 @@ import { Link } from "react-router-dom"
 import StateContext from "../../StateContext"
 
 function Home() {
+  const appState = useContext(StateContext)
   const [state, setState] = useImmer({
     isLoading: true,
     feed: [],
     coursesData: [],
     coursesRoutes: []
   })
-  const appState = useContext(StateContext)
-
+  /*
   useEffect(() => {
     const axiosRequest = Axios.CancelToken.source()
 
@@ -36,7 +36,13 @@ function Home() {
     return () => {
       axiosRequest.cancel()
     }
-  }, [])
+  }, [])*/
+
+  useEffect(() => {
+    setState(draft => {
+      draft.coursesRoutes = appState.user.activeCourses
+    })
+  }, [appState.user.activeCourses])
 
   useEffect(() => {
     const axiosRequest = Axios.CancelToken.source()
@@ -46,7 +52,7 @@ function Home() {
         const response = await Axios.post("/getAllCourses")
         console.log(response)
         setState(draft => {
-          draft.coursesData = response.data
+          ;(draft.coursesData = response.data), (draft.isLoading = false)
         })
       } catch (e) {
         console.log(e.response.data)

@@ -29,20 +29,31 @@ function Main() {
     flashMessages: [],
     user: {
       token: localStorage.getItem("appToken"),
-      username: localStorage.getItem("appUsername")
+      username: localStorage.getItem("appUsername"),
+      activeCourses: [],
+      completedLessons: {}
     }
   }
   function reducer(draft, action) {
     switch (action.type) {
       case "login":
         draft.loggedIn = true
-        draft.user = action.data
+        draft.user = {
+          token: action.data.token,
+          username: action.data.username
+        }
         return
       case "logout":
         draft.loggedIn = false
         return
       case "flashMessage":
         draft.flashMessages.push(action.value)
+        return
+      case "setActiveCourses":
+        draft.user.activeCourses = action.courses
+        return
+      case "setCompletedLessons":
+        draft.user.completedLessons = action.lessons
         return
       default:
         return draft
@@ -79,6 +90,25 @@ function Main() {
       return () => ourRequest.cancel()
     }
   }, [])
+
+  useEffect(() => {
+    if (state.loggedIn) {
+      const ourRequest = Axios.CancelToken.source()
+
+      async function fetchUserDetails() {
+        try {
+          const response = await Axios.post("/userDetails", { token: state.user.token }, { cancelToken: ourRequest.token })
+          dispatch({ type: "setActiveCourses", courses: response.data.activeCourses })
+          dispatch({ type: "setCompletedLessons", lessons: response.data.completedLessons })
+        } catch (error) {
+          console.log(error.response.data)
+        }
+      }
+
+      fetchUserDetails()
+      return () => ourRequest.cancel()
+    }
+  }, [state.loggedIn])
 
   return (
     <div>
