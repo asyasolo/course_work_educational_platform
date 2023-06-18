@@ -7,6 +7,8 @@ Axios.defaults.baseURL = "http://localhost:8080"
 
 import "./main.css"
 
+import ScrollToTop from "./utils/ScrollToTop"
+
 // global state and dispatch
 import StateContext from "./StateContext"
 import DispatchContext from "./DispatchContext"
@@ -115,6 +117,7 @@ function Main() {
       <StateContext.Provider value={state}>
         <DispatchContext.Provider value={dispatch}>
           <BrowserRouter>
+            <ScrollToTop />
             <Header />
 
             <Routes>
