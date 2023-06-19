@@ -1,22 +1,35 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Axios from "axios"
-import { Link } from "react-router-dom"
 
 import NotFound from "../NotFound/NotFound"
 
 import StateContext from "../../StateContext"
 
 function Lesson() {
+  const appState = useContext(StateContext)
+
   const { routeString, lessonID } = useParams()
   const [lesson, setLesson] = useState()
   const [course, setCourse] = useState()
+  const [userCourses, setUserCourses] = useState()
   const [isLoading, setIsLoading] = useState(true)
   const [isMarked, setIsMarked] = useState(false)
   const navigate = useNavigate()
-  let nextLessonID = "test"
+  let nextLessonID = "completed"
 
-  const appState = useContext(StateContext)
+  useEffect(() => {
+    setUserCourses(appState.user.completedLessons)
+  }, [appState.user.completedLessons])
+
+  useEffect(() => {
+    for (let key in userCourses) {
+      if (userCourses[key].includes(lessonID)) {
+        setIsMarked(true)
+        break // Если найдено совпадение, выходим из цикла
+      } else setIsMarked(false)
+    }
+  }, [userCourses, lessonID])
 
   useEffect(() => {
     if (course) {
