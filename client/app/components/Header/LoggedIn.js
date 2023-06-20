@@ -38,7 +38,7 @@ function LoggedIn() {
         </li>
         <li>
           <button onClick={handleMenuToggle} id="menu-toggle">
-            <img src="../../img/menu-burger.svg" alt="" />
+            <img height={25} src="../../img/menu-burger.svg" alt="" />
           </button>
         </li>
       </ul>

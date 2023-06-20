@@ -558,12 +558,27 @@ input:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 40px;
 }
 
 .lesson-wrapper {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+}
+
+.star_img {
+  padding: 0 5px;
+}
+
+@media (max-width: 480px) {
+  .course-wrapper {
+    width: 85vw;
+  }
+
+  .course-img img {
+    height: 166px;
+  }
 }
 
 /* LESSON PAGE */
@@ -598,4 +613,28 @@ input:active {
   flex: 2;
   border-radius: 8px;
   background-color: var(--main-pink);
+}
+
+.block-wrapper {
+  padding-bottom: 30px;
+}
+
+/* CONGRATULATION PAGE */
+
+.congrats_page_wrapper {
+  height: calc(100vh - 136px);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.congrats_page {
+  width: 80vw;
+  text-align: center;
+}
+
+.congrats_page h4 {
+  color: var(--main-white);
 }

@@ -67,7 +67,7 @@ function Course() {
           <p className="white">{course.description}</p>
         </div>
         <div className="course-img">
-          <img src="../../img/king.png" height={166} alt="" />
+          <img src="../../img/arleckin.png" height={250} alt="" />
         </div>
       </div>
 
@@ -80,7 +80,7 @@ function Course() {
                 <Link to={`/courses/${course.routeString}/${block.lessonID}`}>
                   <p className="white">{block.title}</p>
                 </Link>
-                {completedLessons && completedLessons.length > 0 && <img src={completedLessons.includes(block.lessonID) ? "../../img/star_golden.png" : "../../img/star.svg"} height={33} alt="" />}
+                {completedLessons && completedLessons.length > 0 && <img className="star_img" src={completedLessons.includes(block.lessonID) ? "../../img/star_golden.png" : "../../img/star.png"} height={33} alt="" />}
               </div>
             ))}
           </div>

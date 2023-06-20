@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client"
 import { useImmerReducer } from "use-immer"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Axios from "axios"
-Axios.defaults.baseURL = "https://idafoundation-api.onrender.com/"
+/*Axios.defaults.baseURL = "https://idafoundation-api.onrender.com/"*/
+Axios.defaults.baseURL = "http://localhost:8080"
 
 import "./main.css"
 
