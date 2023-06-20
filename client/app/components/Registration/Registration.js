@@ -198,7 +198,7 @@ function Registration() {
 
   return (
     <div className="register text-block">
-      <div className="about-text-area">
+      <div className="register-text-area">
         <h3>СОХРАНЯЕМ ВАШ ПУТЬ</h3>
         <p>зарегиструйтесь или войдите, и мы сохраним ваш прогресс</p>
       </div>

@@ -48,6 +48,7 @@ body {
   -webkit-background-size: 101% auto;
   background-size: 101% auto;
   border-bottom: 10px solid var(--main-pink);
+  top: -2px;
 }
 
 .text-block:nth-of-type(3) {
@@ -154,9 +155,48 @@ input:active {
   border: none;
 }
 
+/* Медиазапрос для мобильных устройств */
+@media screen and (max-width: 480px) {
+  /* Обновленные стили для мобильных устройств */
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 120px;
+  }
+
+  h2 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  h3 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  h4 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  p,
+  li,
+  ::placeholder,
+  input {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .text-block {
+    height: 120vh;
+  }
+}
+
 .hero-img {
-  height: 420px;
-  width: auto;
+  height: auto;
+  width: 420px;
 }
 
 .white {
@@ -182,8 +222,10 @@ input:active {
   height: 136px;
   background-color: var(--main-green);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 7%;
+  margin-left: 50px;
 }
 
 .nav li {
@@ -221,12 +263,59 @@ input:active {
   font-weight: 700;
 }
 
+#menu-toggle {
+  display: none;
+}
+
+#dropout_menu {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .nav {
+    align-items: center;
+    justify-content: right;
+    margin-left: 0;
+    gap: 0;
+  }
+
+  .nav-item-anc {
+    display: none;
+  }
+
+  .logo {
+    padding-right: calc(-1 * ((100vw / 2) - 300px));
+  }
+
+  #menu-toggle {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--main-pink);
+    border: none;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  #dropout_menu {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-pink);
+  }
+
+  .dropout_menu_item {
+    padding: 10px 0 10px 20px;
+    text-align: center;
+  }
+}
+
 /* HERO */
 
 .hero {
   margin: 0 auto;
   display: flex;
-  width: 1200px;
+  width: 100vw;
   flex-direction: column;
   align-items: center;
   height: 70vw;
@@ -247,6 +336,28 @@ input:active {
   z-index: 3;
 }
 
+@media screen and (max-width: 480px) {
+  .hero {
+    height: 120vw;
+  }
+
+  .hero-img {
+    z-index: 2;
+    width: 420px;
+  }
+
+  .hero-title1 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -70px;
+  }
+
+  .hero-title2 {
+    z-index: 3;
+    margin-top: -128px;
+  }
+}
+
 /* ABOUT */
 
 .about {
@@ -261,6 +372,32 @@ input:active {
 
 .about-img {
   transform: scaleX(-1);
+}
+
+@media (max-width: 480px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 0 10px;
+  }
+
+  .about-text-area {
+    text-align: justify;
+  }
+
+  .about-pic-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-img {
+    width: 80%;
+    height: auto;
+  }
 }
 
 /* COURSES */
@@ -288,6 +425,40 @@ input:active {
   text-align: right;
 }
 
+.courses-text-area {
+  width: 700px;
+}
+
+@media (max-width: 480px) {
+  .courses {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    height: 140vh;
+  }
+
+  .courses-text-area {
+    width: 100vw;
+    text-align: center;
+  }
+
+  .courses .course-list-wrapper {
+    order: 2;
+    width: 100vw;
+    align-items: center;
+  }
+
+  .course-list-item {
+    width: 90vw;
+  }
+
+  .course-list-btn {
+    text-align: right;
+    width: 90vw;
+  }
+}
+
 /* REGISTRATION FORM */
 
 .register {
@@ -296,6 +467,10 @@ input:active {
   justify-content: space-around;
   background-color: var(--main-light-green);
   height: 95vh;
+}
+
+.register-text-area {
+  width: 700px;
 }
 
 .login-form {
@@ -337,6 +512,29 @@ input:active {
   font-size: 22px;
   font-weight: 700;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .register {
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .register-text-area {
+    width: 85vw;
+  }
+
+  .register-text-area h3 {
+    text-align: center;
+  }
+
+  .login-form {
+    width: 85vw;
+    height: 500px;
+  }
 }
 
 /* COURSES CONTAINER */

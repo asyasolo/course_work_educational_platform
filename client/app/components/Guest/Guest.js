@@ -45,7 +45,7 @@ function Guest() {
             <Link to="/courses">ВСЕ КУРСЫ</Link>
           </span>
         </div>
-        <div className="about-text-area">
+        <div className="courses-text-area">
           <h3>НАШИ КУРСЫ</h3>
           <p>научитесь создавать с нами</p>
         </div>
