@@ -5,6 +5,11 @@ import DispatchContext from "../../DispatchContext"
 
 function LoggedIn() {
   const appDispatch = useContext(DispatchContext)
+  const [menuActive, setMenuActive] = useState(false)
+
+  function handleMenuToggle() {
+    setMenuActive(!menuActive)
+  }
 
   function handleLogout() {
     appDispatch({ type: "logout" })
@@ -32,28 +37,30 @@ function LoggedIn() {
           </span>
         </li>
         <li>
-          <button onClick={handleNav} id="menu-toggle">
+          <button onClick={handleMenuToggle} id="menu-toggle">
             <img src="../../img/menu-burger.svg" alt="" />
           </button>
         </li>
       </ul>
 
-      <ul id="dropout_menu">
-        <Link className="dropout_menu_item" to="/">
-          <li>КТО МЫ</li>
-        </Link>
+      {menuActive && (
+        <ul id="dropout_menu">
+          <Link className="dropout_menu_item" to="/">
+            <li>КТО МЫ</li>
+          </Link>
 
-        <Link className="dropout_menu_item" to="/courses">
-          <li>НАШИ КУРСЫ</li>
-        </Link>
+          <Link className="dropout_menu_item" to="/courses">
+            <li>НАШИ КУРСЫ</li>
+          </Link>
 
-        <Link className="dropout_menu_item" to="/login">
-          <li>ВОЙТИ</li>
-        </Link>
-        <Link className="dropout_menu_item" to="/register">
-          <li>РЕГИСТРАЦИЯ</li>
-        </Link>
-      </ul>
+          <Link className="dropout_menu_item" to="/login">
+            <li>ВОЙТИ</li>
+          </Link>
+          <Link className="dropout_menu_item" to="/register">
+            <li>РЕГИСТРАЦИЯ</li>
+          </Link>
+        </ul>
+      )}
     </>
   )
 }
