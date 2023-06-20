@@ -11,6 +11,7 @@ function LoggedOut() {
   return (
     <>
       <ul className="nav">
+        <div className="hidden"></div>
         <Link className="nav-item-anc" to="/">
           <li>КТО МЫ</li>
         </Link>

@@ -172,7 +172,7 @@ input:active {
   }
 
   h3 {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 40px;
   }
 
@@ -225,7 +225,7 @@ input:active {
   justify-content: center;
   align-items: center;
   gap: 7%;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .nav li {
@@ -274,7 +274,7 @@ input:active {
 @media screen and (max-width: 480px) {
   .nav {
     align-items: center;
-    justify-content: right;
+    justify-content: space-around;
     margin-left: 0;
     gap: 0;
   }
@@ -283,8 +283,9 @@ input:active {
     display: none;
   }
 
-  .logo {
-    padding-right: calc(-1 * ((100vw / 2) - 300px));
+  .hidden {
+    width: 40px;
+    height: 40px;
   }
 
   #menu-toggle {
@@ -295,7 +296,6 @@ input:active {
     border: none;
     border-radius: 8px;
     margin-left: auto;
-    margin-right: 30px;
   }
 
   #dropout_menu {
@@ -338,12 +338,13 @@ input:active {
 
 @media screen and (max-width: 480px) {
   .hero {
-    height: 120vw;
+    height: 100vh;
+    width: 100vw;
   }
 
   .hero-img {
     z-index: 2;
-    width: 420px;
+    width: 80vw;
   }
 
   .hero-title1 {
@@ -491,7 +492,7 @@ input:active {
 }
 
 .login-form-item {
-  min-width: 372px;
+  width: 372px;
   height: 65px;
   border: none;
   background-color: var(--main-light-green);
@@ -503,7 +504,7 @@ input:active {
 
 .register-btn {
   height: 65px;
-  min-width: 372px;
+  width: 372px;
   background-color: var(--main-pink);
   color: white;
   border: none;
@@ -535,6 +536,19 @@ input:active {
     width: 85vw;
     height: 500px;
   }
+
+  .login-form-block {
+    width: 75vw;
+    margin: 0;
+  }
+
+  .login-form-item {
+    width: 75vw;
+  }
+
+  .register-btn {
+    width: 75vw;
+  }
 }
 
 /* COURSES CONTAINER */
@@ -564,7 +578,7 @@ input:active {
 .lesson-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .star_img {
@@ -574,6 +588,16 @@ input:active {
 @media (max-width: 480px) {
   .course-wrapper {
     width: 85vw;
+  }
+
+  .course-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .course-text {
+    text-align: justify;
   }
 
   .course-img img {
@@ -617,6 +641,25 @@ input:active {
 
 .block-wrapper {
   padding-bottom: 30px;
+}
+
+@media (max-width: 480px) {
+  .view-lesson-wrapper {
+    width: 95vw;
+  }
+
+  .button-block {
+    width: 95vw;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 15px 0;
+  }
 }
 
 /* CONGRATULATION PAGE */

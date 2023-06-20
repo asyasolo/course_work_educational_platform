@@ -19,6 +19,7 @@ function LoggedIn() {
   return (
     <>
       <ul className="nav">
+        <div className="hidden"></div>
         <li className="nav-item-anc">КТО МЫ</li>
         <Link to="/courses" className="nav-item-anc">
           <li>НАШИ КУРСЫ</li>
