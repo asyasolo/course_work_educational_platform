@@ -17,25 +17,36 @@ function LoggedIn() {
   }
 
   return (
-    <>
-      <ul className="nav">
-        <div className="hidden"></div>
-        <li className="nav-item-anc">КТО МЫ</li>
-        <Link to="/courses" className="nav-item-anc">
-          <li>НАШИ КУРСЫ</li>
-        </Link>
-
-        <li className="logo">
-          <span>ida</span>
-          <span>Foundation</span>
+    <header>
+      <ul className="nav nav-left">
+        <li>
+          <Link className="nav-item-anc" to="/">
+            КТО МЫ
+          </Link>
         </li>
-        <Link className="nav-item-anc" to="/">
-          <li>ПРОФИЛЬ</li>
-        </Link>
-        <li className="nav-item-anc">
-          <span className="pink-btn" onClick={handleLogout}>
-            <Link to="/">ВЫЙТИ</Link>
-          </span>
+
+        <li>
+          <Link to="/courses" className="nav-item-anc">
+            НАШИ КУРСЫ
+          </Link>
+        </li>
+      </ul>
+
+      <li className="logo">
+        <span>ida</span>
+        <span>Foundation</span>
+      </li>
+      <ul className="nav nav-right">
+        <li>
+          <Link className="nav-item-anc" to="/">
+            ПРОФИЛЬ
+          </Link>
+        </li>
+
+        <li onClick={handleLogout}>
+          <Link className="pink-btn anchor-li nav-item-anc" to="/">
+            ВЫЙТИ
+          </Link>
         </li>
         <li>
           <button onClick={handleMenuToggle} id="menu-toggle">
@@ -62,7 +73,7 @@ function LoggedIn() {
           </Link>
         </ul>
       )}
-    </>
+    </header>
   )
 }
 

@@ -3,8 +3,8 @@ import { createRoot } from "react-dom/client"
 import { useImmerReducer } from "use-immer"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Axios from "axios"
-Axios.defaults.baseURL = "https://idafoundation-api.onrender.com/"
-/*Axios.defaults.baseURL = "http://localhost:8080"*/
+// Axios.defaults.baseURL = "https://idafoundation-api.onrender.com/"
+Axios.defaults.baseURL = "http://localhost:8080"
 
 import "./main.css"
 
@@ -34,8 +34,8 @@ function Main() {
       token: localStorage.getItem("appToken"),
       username: localStorage.getItem("appUsername"),
       activeCourses: [],
-      completedLessons: {}
-    }
+      completedLessons: {},
+    },
   }
   function reducer(draft, action) {
     switch (action.type) {
@@ -43,7 +43,7 @@ function Main() {
         draft.loggedIn = true
         draft.user = {
           token: action.data.token,
-          username: action.data.username
+          username: action.data.username,
         }
         return
       case "logout":
@@ -80,10 +80,17 @@ function Main() {
       const ourRequest = Axios.CancelToken.source()
       async function fetchResults() {
         try {
-          const response = await Axios.post("/checkToken", { token: state.user.token }, { cancelToken: ourRequest.token })
+          const response = await Axios.post(
+            "/checkToken",
+            { token: state.user.token },
+            { cancelToken: ourRequest.token },
+          )
           if (!response.data) {
             dispatch({ type: "logout" })
-            dispatch({ type: "flashMessage", value: "Your session has expired. Please log in again." })
+            dispatch({
+              type: "flashMessage",
+              value: "Your session has expired. Please log in again.",
+            })
           }
         } catch (error) {
           console.log(error.response.data)
@@ -100,7 +107,11 @@ function Main() {
 
       async function fetchUserDetails() {
         try {
-          const response = await Axios.post("/userDetails", { token: state.user.token }, { cancelToken: ourRequest.token })
+          const response = await Axios.post(
+            "/userDetails",
+            { token: state.user.token },
+            { cancelToken: ourRequest.token },
+          )
           dispatch({ type: "setActiveCourses", courses: response.data.activeCourses })
           dispatch({ type: "setCompletedLessons", lessons: response.data.completedLessons })
         } catch (error) {
@@ -114,7 +125,7 @@ function Main() {
   }, [state.loggedIn])
 
   return (
-    <div>
+    <>
       <StateContext.Provider value={state}>
         <DispatchContext.Provider value={dispatch}>
           <BrowserRouter>
@@ -135,7 +146,7 @@ function Main() {
           </BrowserRouter>
         </DispatchContext.Provider>
       </StateContext.Provider>
-    </div>
+    </>
   )
 }
 

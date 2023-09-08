@@ -9,30 +9,37 @@ function LoggedOut() {
   }
 
   return (
-    <>
-      <ul className="nav">
-        <div className="hidden"></div>
-        <Link className="nav-item-anc" to="/">
-          <li>КТО МЫ</li>
-        </Link>
-        <Link className="nav-item-anc" to="/courses">
-          <li>НАШИ КУРСЫ</li>
-        </Link>
+    <header>
+      <ul className="nav nav-left">
         <li>
-          <Link className="anchor-li logo" to="/">
-            <span>ida</span>
-            <span>Foundation</span>
+          <Link className="nav-item-anc" to="/">
+            КТО МЫ
           </Link>
         </li>
-        <Link className="nav-item-anc anchor-li" to="/login">
-          <li>ВОЙТИ</li>
-        </Link>
-        <li className="nav-item-anc">
-          <span className="pink-btn">
-            <Link to="/register">РЕГИСТРАЦИЯ</Link>
-          </span>
-        </li>
+
         <li>
+          <Link className="nav-item-anc" to="/courses">
+            НАШИ КУРСЫ
+          </Link>
+        </li>
+      </ul>
+      <Link className="anchor-li logo" to="/">
+        <span>ida</span>
+        <span>Foundation</span>
+      </Link>
+      <ul className="nav nav-right">
+        <li>
+          <Link className="nav-item-anc anchor-li" to="/login">
+            ВОЙТИ
+          </Link>
+        </li>
+
+        <li>
+          <Link className="pink-btn anchor-li nav-item-anc" to="/register">
+            РЕГИСТРАЦИЯ
+          </Link>
+        </li>
+        <li className="nav-item-anc anchor-li">
           <button onClick={handleMenuToggle} id="menu-toggle">
             <img height={25} src="../../img/menu-burger.svg" alt="" />
           </button>
@@ -41,23 +48,32 @@ function LoggedOut() {
 
       {menuActive && (
         <ul id="dropout_menu">
-          <Link className="dropout_menu_item" to="/">
-            <li>КТО МЫ</li>
-          </Link>
+          <li>
+            <Link className="dropout_menu_item" to="/">
+              КТО МЫ
+            </Link>
+          </li>
 
-          <Link className="dropout_menu_item" to="/courses">
-            <li>НАШИ КУРСЫ</li>
-          </Link>
+          <li>
+            <Link className="dropout_menu_item" to="/courses">
+              НАШИ КУРСЫ
+            </Link>
+          </li>
 
-          <Link className="dropout_menu_item" to="/login">
-            <li>ВОЙТИ</li>
-          </Link>
-          <Link className="dropout_menu_item" to="/register">
-            <li>РЕГИСТРАЦИЯ</li>
-          </Link>
+          <li>
+            <Link className="dropout_menu_item" to="/login">
+              ВОЙТИ
+            </Link>
+          </li>
+
+          <li>
+            <Link className="dropout_menu_item" to="/register">
+              РЕГИСТРАЦИЯ
+            </Link>
+          </li>
         </ul>
       )}
-    </>
+    </header>
   )
 }
 
